@@ -5,14 +5,15 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Bewohner[] bewohner = new Bewohner[getLines()];
+        Bewohner[] bewohner = new Bewohner[countLines()];
         bewohner = readFile(bewohner);
-        showBewohner(bewohner);
+        printBewohner(bewohner);
     }
 
-    private static void showBewohner(Bewohner[] bewohner) {
+    private static void printBewohner(Bewohner[] bewohner) {
         for (int i = 0; i < bewohner.length; i++) {
-            System.out.println(bewohner[i].getVorname() + ";" + bewohner[i].getNachname());
+            System.out.println(bewohner[i].getVorname() +
+                         ";" + bewohner[i].getNachname());
         }
     }
 
@@ -33,7 +34,7 @@ public class Main {
         return bewohner;
     }
 
-    private static int getLines() {
+    private static int countLines() {
         int counter = 0;
 
         try(Scanner scanner = new Scanner(new FileReader("personen.csv"))) {
